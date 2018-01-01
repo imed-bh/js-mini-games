@@ -6,16 +6,37 @@ window.Game = (function() {
   };
 
   Game.prototype.init = function() {
-    this.loop();
+    this.timer = new Timer(1000);
+    this.setupLoop();
   };
 
-  Game.prototype.loop = function() {
-    window.requestAnimationFrame(this.step.bind(this));
+  Game.prototype.setupLoop = function() {
+    window.requestAnimationFrame(this.loop.bind(this));
   };
 
-  Game.prototype.step = function(time) {
-    console.log(time);
-    this.loop();
+  Game.prototype.loop = function(time) {
+    if (this.timer.update(time)) {
+      this.step();
+    }
+    this.setupLoop();
+  };
+
+  Game.prototype.step = function() {
+    this.checkLines();
+    this.moveDown();
+    this.checkGameOver();
+  };
+
+  Game.prototype.checkLines = function() {
+
+  };
+
+  Game.prototype.moveDown = function() {
+
+  };
+
+  Game.prototype.checkGameOver = function() {
+
   };
 
   return Game;

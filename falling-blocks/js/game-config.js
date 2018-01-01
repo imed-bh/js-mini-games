@@ -5,4 +5,4 @@ window.GameConfiguration = (function() {
   };
 
   return GameConfiguration;
-});
+})();
