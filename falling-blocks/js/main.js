@@ -1,5 +1,7 @@
 $.onload(function() {
   var canvas = $('#main');
-  var game = new Game(canvas);
+  var ui = new GameUI(canvas);
+  var config = new GameConfiguration();
+  var game = new Game(ui, config);
   game.init();
 });
